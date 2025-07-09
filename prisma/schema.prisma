@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  image_url   String?
+  created_at  DateTime    @default(now())
+  foodItems   food_items[]  @relation("CategoryToFoodItems")
+}
+
+model food_items {
+  id               Int         @id @default(autoincrement())
+  name             String
+  description      String?
+  price            Decimal     @db.Decimal(10, 2)
+  image_url        String?
+  category_id      Int?
+  is_available     Boolean     @default(true)
+  preparation_time Int         @default(15)
+  created_at       DateTime    @default(now())
+
+  category   categories?  @relation(fields: [category_id], references: [id], name: "CategoryToFoodItems")
+  orderItems order_items[]
+}
+
+model orders {
+  id              Int          @id @default(autoincrement())
+  customer_name   String
+  customer_email  String
+  customer_phone  String?
+  delivery_address String?
+  total_amount    Decimal      @db.Decimal(10, 2)
+  status          OrderStatus  @default(pending)
+  payment_status  PaymentStatus @default(pending)
+  payment_method  String?
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @updatedAt
+
+  orderItems order_items[]
+}
+
+model order_items {
+  id          Int       @id @default(autoincrement())
+  order_id    Int
+  food_item_id Int
+  quantity    Int
+  price       Decimal   @db.Decimal(10, 2)
+
+  order     orders    @relation(fields: [order_id], references: [id])
+  foodItem  food_items @relation(fields: [food_item_id], references: [id])
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  preparing
+  ready
+  delivered
+  cancelled
+}
+
+enum PaymentStatus {
+  pending
+  paid
+  failed
+}
