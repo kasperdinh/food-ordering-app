@@ -53,7 +53,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent className="w-full sm:max-w-lg">
         <SheetHeader>
-          <SheetTitle>Cart</SheetTitle>
+          <SheetTitle>Your Cart</SheetTitle>
         </SheetHeader>
 
         <div className="flex flex-col h-[calc(100vh-4rem)]">

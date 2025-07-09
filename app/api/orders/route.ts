@@ -14,18 +14,17 @@ export async function POST(request: Request) {
 
       // Insert order
       const [orderResult] = await connection.execute(
-        `INSERT INTO orders (customer_name, customer_email, customer_phone, 
-         delivery_address, total_amount, payment_method) 
-         VALUES (?, ?, ?, ?, ?, ?)`,
-        [
-          orderData.customer_name,
-          orderData.customer_email,
-          orderData.customer_phone,
-          orderData.delivery_address,
-          orderData.total_amount,
-          orderData.payment_method,
-        ],
-      )
+      `INSERT INTO orders (
+        customer_name, customer_email, customer_phone, 
+        delivery_address, total_amount, payment_method, updated_at
+      ) 
+      VALUES (?, ?, ?, ?, ?, ?, ?)`, 
+      [
+        orderData.customer_name, orderData.customer_email, orderData.customer_phone,
+        orderData.delivery_address, orderData.total_amount, orderData.payment_method,
+        new Date()
+      ]
+    );
 
       const orderId = (orderResult as any).insertId
 

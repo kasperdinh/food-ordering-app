@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { ShoppingCart, Utensils } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { useCart } from "@/contexts/cart-context"
-import Link from "next/link"
+import { Utensils } from "lucide-react";
+import { useCart } from "@/contexts/cart-context";
+import Link from "next/link";
+import { AddNew } from "@/components/ui/add-new";
+import { Cart } from "@/components/ui/cart";
 
 interface HeaderProps {
-  onCartClick: () => void
+  onCartClick: () => void;
 }
 
 export function Header({ onCartClick }: HeaderProps) {
-  const { state } = useCart()
-  const itemCount = state.items.reduce((sum, item) => sum + item.quantity, 0)
+  const { state } = useCart();
+  const itemCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ">
@@ -22,19 +22,12 @@ export function Header({ onCartClick }: HeaderProps) {
           <span className="font-bold text-xl">FoodOrder</span>
         </Link>
 
-        <Button variant="outline" size="sm" onClick={onCartClick} className="relative bg-transparent">
-          <ShoppingCart className="h-4 w-4" />
-          {itemCount > 0 && (
-            <Badge
-              variant="destructive"
-              className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
-            >
-              {itemCount}
-            </Badge>
-          )}
-          <span className="ml-2">${state.total.toFixed(2)}</span>
-        </Button>
+        <div className="flex items-center space-x-2">
+          <AddNew />
+
+          <Cart onCartClick={onCartClick} />
+        </div>
       </div>
     </header>
-  )
+  );
 }

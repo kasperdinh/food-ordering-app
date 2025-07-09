@@ -1,2 +1,2 @@
 # food-ordering-app
-food-ordering-app website by NextJS
+food-ordering-app by NextJS
