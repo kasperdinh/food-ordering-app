@@ -3,7 +3,7 @@
 import { Utensils } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
 import Link from "next/link";
-import { AddNew } from "@/components/ui/add-new";
+import { FoodManage } from "@/components/ui/food-manage";
 import { Cart } from "@/components/ui/cart";
 
 interface HeaderProps {
@@ -23,7 +23,7 @@ export function Header({ onCartClick }: HeaderProps) {
         </Link>
 
         <div className="flex items-center space-x-2">
-          <AddNew />
+          <FoodManage />
 
           <Cart onCartClick={onCartClick} />
         </div>

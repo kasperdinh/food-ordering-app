@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Header } from "@/components/header";
 import { FoodItemCard } from "@/components/food-item-card";
 import { CartSidebar } from "@/components/cart-sidebar";
@@ -13,10 +14,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Edit, Trash2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import type { Category, FoodItem } from "@/types";
 
 export default function FoodItemsPage() {
+  const router = useRouter();
+  const { toast } = useToast();
   const [categories, setCategories] = useState<Category[]>([]);
   const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
   const [filteredItems, setFilteredItems] = useState<FoodItem[]>([]);
@@ -98,6 +102,42 @@ export default function FoodItemsPage() {
   const getCategoryName = (categoryId: number) => {
     const category = categories.find((cat) => cat.id === categoryId);
     return category?.name || "Unknown";
+  };
+
+  const handleEdit = (item: FoodItem) => {
+    // Navigate to edit page with item data
+    router.push(`/food-items/edit/${item.id}`);
+  };
+
+  const handleDelete = async (item: FoodItem) => {
+    if (!confirm(`Are you sure you want to delete "${item.name}"?`)) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/food-items/${item.id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success",
+          description: `${item.name} has been deleted successfully.`,
+        });
+
+        // Refresh the food items list
+        fetchFoodItems();
+      } else {
+        throw new Error("Failed to delete food item");
+      }
+    } catch (error) {
+      console.error("Error deleting food item:", error);
+      toast({
+        title: "Error",
+        description: "Failed to delete the food item. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (loading) {
@@ -214,10 +254,25 @@ export default function FoodItemsPage() {
             {filteredItems.map((item) => (
               <div key={item.id} className="space-y-2">
                 <FoodItemCard item={item} />
-                <div className="text-xs text-muted-foreground text-center">
-                  {!item.is_available && (
-                    <span className="text-red-500"> • Unavailable</span>
-                  )}
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    onClick={() => handleEdit(item)}
+                  >
+                    <Edit className="h-3 w-3 mr-1" />
+                    Edit
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 text-red-500 hover:text-red-700 hover:bg-red-50"
+                    onClick={() => handleDelete(item)}
+                  >
+                    <Trash2 className="h-3 w-3 mr-1" />
+                    Delete
+                  </Button>
                 </div>
               </div>
             ))}
