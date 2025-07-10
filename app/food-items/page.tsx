@@ -146,7 +146,7 @@ export default function FoodItemsPage() {
         <Header onCartClick={() => setCartOpen(true)} />
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-64">
-            <div className="text-muted-foreground">Loading food items...</div>
+            <div className="text-muted-foreground">Loading dishes...</div>
           </div>
         </div>
       </div>
@@ -160,9 +160,9 @@ export default function FoodItemsPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">All Food Items</h1>
+          <h1 className="text-3xl font-bold mb-2">All Dishes</h1>
           <p className="text-muted-foreground">
-            Browse our complete menu of delicious food items
+            Browse our complete menu of delicious dishes
           </p>
         </div>
 
@@ -172,7 +172,7 @@ export default function FoodItemsPage() {
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="Search food items..."
+              placeholder="Search dishes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -237,7 +237,7 @@ export default function FoodItemsPage() {
         {filteredItems.length === 0 ? (
           <div className="text-center py-12">
             <div className="text-muted-foreground mb-4">
-              No food items found
+              No dishes found
             </div>
             <Button
               variant="outline"
