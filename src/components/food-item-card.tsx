@@ -42,32 +42,29 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
   };
 
   return (
-    <Card className="overflow-hidden h-[420px] w-full flex flex-col group hover:shadow-2xl transition-all duration-500 border-border/50 hover:border-orange-300 bg-gradient-to-b from-card to-card/95 backdrop-blur-sm food-card-hover">
+    <Card className="overflow-hidden h-[420px] w-full flex flex-col group food-card food-card-hover">
       <div className="h-52 relative flex-shrink-0 overflow-hidden rounded-t-lg">
         <Image
           src={item.image_url || "/placeholder.svg"}
           alt={item.name}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          className="object-cover food-card-image"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-          <Badge
-            variant="secondary"
-            className="bg-white/90 text-orange-800 border-0 shadow-lg backdrop-blur-sm font-medium"
-          >
+        <div className="absolute inset-0 food-card-overlay" />
+        <div className="absolute top-3 right-3 food-card-badge">
+          <Badge variant="secondary" className="food-card-badge">
             {item.preparation_time} min
           </Badge>
         </div>
-        <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+        <div className="absolute bottom-3 left-3 food-card-price-overlay">
           <span className="text-white text-2xl font-bold drop-shadow-lg">
             ${item.price}
           </span>
         </div>
       </div>
 
-      <CardHeader className="flex-1 pb-3 px-5 pt-4 bg-gradient-to-b from-card to-card/95">
-        <CardTitle className="text-lg font-semibold line-clamp-2 group-hover:text-orange-600 transition-colors duration-300 leading-tight">
+      <CardHeader className="flex-1 pb-3 px-5 pt-4 food-card-header">
+        <CardTitle className="text-lg font-semibold line-clamp-2 food-card-title leading-tight">
           {item.name}
         </CardTitle>
         <CardDescription className="line-clamp-3 text-muted-foreground text-sm leading-relaxed mt-2">
@@ -75,9 +72,9 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
         </CardDescription>
       </CardHeader>
 
-      <CardFooter className="flex justify-between items-center pt-2 pb-5 px-5 mt-auto bg-gradient-to-t from-orange-50 to-transparent">
+      <CardFooter className="flex justify-between items-center pt-2 pb-5 px-5 mt-auto food-card-footer">
         <div className="flex flex-col">
-          <span className="text-2xl font-bold text-orange-600">
+          <span className="text-2xl font-bold food-card-price">
             ${item.price}
           </span>
           <span className="text-xs text-muted-foreground">
@@ -87,7 +84,7 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
         <Button
           onClick={addToCart}
           size="sm"
-          className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-2 rounded-full font-medium group-hover:scale-105"
+          className="food-card-add-button font-medium"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add to Cart

@@ -106,7 +106,7 @@ export function Carousel() {
 
   return (
     <div
-      className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-xl bg-gradient-to-r from-background via-secondary/20 to-accent/30 shadow-lg"
+      className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-xl carousel-container shadow-lg"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -114,30 +114,30 @@ export function Carousel() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+          className={`absolute inset-0 carousel-slide ${
             index === currentSlide
-              ? "opacity-100 translate-x-0"
+              ? "carousel-slide-active"
               : index < currentSlide
-              ? "opacity-0 -translate-x-full"
-              : "opacity-0 translate-x-full"
+              ? "carousel-slide-prev"
+              : "carousel-slide-next"
           }`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
             {/* Content Side */}
-            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-6 bg-gradient-to-br from-background/95 to-secondary/50 backdrop-blur-sm">
+            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-6 carousel-content">
               {/* Badge */}
               {slide.badge && (
-                <Badge className="w-fit bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors">
+                <Badge className="w-fit carousel-badge transition-colors">
                   {slide.badge}
                 </Badge>
               )}
 
               {/* Title */}
               <div className="space-y-2">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight carousel-title">
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl text-primary font-medium">
+                <p className="text-lg md:text-xl carousel-subtitle font-medium">
                   {slide.subtitle}
                 </p>
               </div>
@@ -151,17 +151,17 @@ export function Carousel() {
               {slide.stats && (
                 <div className="flex items-center space-x-6 text-sm text-muted-foreground">
                   <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <Star className="h-4 w-4 carousel-star" />
                     <span className="font-medium text-foreground">
                       {slide.stats.rating}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Clock className="h-4 w-4 text-primary" />
+                    <Clock className="h-4 w-4 carousel-icon-primary" />
                     <span>{slide.stats.time}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Users className="h-4 w-4 text-primary" />
+                    <Users className="h-4 w-4 carousel-icon-primary" />
                     <span>{slide.stats.served} served</span>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export function Carousel() {
                 <Link href={slide.ctaLink}>
                   <Button
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg"
+                    className="carousel-cta px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg"
                   >
                     {slide.cta}
                   </Button>
@@ -182,7 +182,7 @@ export function Carousel() {
 
             {/* Image Side */}
             <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-orange-300/20 rounded-l-3xl" />
+              <div className="absolute inset-0 carousel-image-overlay rounded-l-3xl" />
               <Image
                 src={slide.image}
                 alt={slide.title}
@@ -190,7 +190,7 @@ export function Carousel() {
                 className="object-cover rounded-l-3xl"
                 priority={index === 0}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-l-3xl" />
+              <div className="absolute inset-0 carousel-image-gradient rounded-l-3xl" />
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@ export function Carousel() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background border-border/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-200"
+        className="absolute left-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-200"
         onClick={prevSlide}
       >
         <ChevronLeft className="h-4 w-4" />
@@ -209,7 +209,7 @@ export function Carousel() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background border-border/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-200"
+        className="absolute right-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-200"
         onClick={nextSlide}
       >
         <ChevronRight className="h-4 w-4" />
@@ -220,10 +220,8 @@ export function Carousel() {
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-primary w-8"
-                : "bg-background/50 hover:bg-background/80 border border-border"
+            className={`carousel-dot ${
+              index === currentSlide ? "carousel-dot-active" : ""
             }`}
             onClick={() => goToSlide(index)}
           />
@@ -231,9 +229,9 @@ export function Carousel() {
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-border/30">
+      <div className="absolute bottom-0 left-0 w-full h-1 carousel-progress">
         <div
-          className="h-full bg-primary transition-all duration-300 ease-linear"
+          className="h-full carousel-progress-bar"
           style={{
             width: `${((currentSlide + 1) / slides.length) * 100}%`,
           }}

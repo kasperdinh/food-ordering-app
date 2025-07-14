@@ -54,7 +54,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
       <SheetContent className="w-full sm:max-w-lg bg-gradient-to-b from-background to-background/95 border-l border-border/50 backdrop-blur-xl">
         <SheetHeader className="border-b border-orange-200 pb-6">
           <SheetTitle className="text-foreground text-xl font-semibold flex items-center space-x-2">
-            <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600">
+            <div className="p-2 rounded-lg footer-logo-icon">
               <ShoppingBag className="h-5 w-5 text-white" />
             </div>
             <span>Your Cart</span>
@@ -66,7 +66,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
             {state.items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
                 <div className="p-6 rounded-full bg-gradient-to-r from-orange-50 to-orange-100">
-                  <ShoppingBag className="h-16 w-16 text-orange-500" />
+                  <ShoppingBag className="h-16 w-16 cart-empty-icon" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-lg font-medium text-foreground">
@@ -90,7 +90,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                         src={item.image_url || "/placeholder.svg"}
                         alt={item.name}
                         fill
-                        className="object-cover rounded-xl border-2 border-border/20 group-hover:border-orange-300 transition-all duration-300"
+                        className="object-cover cart-item-image border-2 border-border/20 group-hover:border-orange-300 transition-all duration-300"
                       />
                     </div>
                     <div className="flex-1 min-w-0">

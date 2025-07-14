@@ -11,10 +11,10 @@ import {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-orange-50 text-gray-800">
+    <footer className="relative overflow-hidden footer-container">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-100/20 to-transparent"></div>
+        <div className="absolute inset-0 footer-bg-overlay"></div>
       </div>
 
       <div className="container relative mx-auto px-4 py-16">
@@ -22,10 +22,10 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600">
+              <div className="p-2 rounded-xl footer-logo-icon">
                 <Utensils className="h-6 w-6 text-white" />
               </div>
-              <span className="font-bold text-2xl bg-gradient-to-r from-orange-600 via-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="font-bold text-2xl footer-logo-text">
                 FoodOrder
               </span>
             </div>
@@ -35,75 +35,60 @@ export function Footer() {
               doorstep.
             </p>
             <div className="flex space-x-4">
-              <div className="p-2 rounded-full bg-white hover:bg-red-50 border border-gray-200 hover:border-red-300 transition-all duration-300 cursor-pointer group shadow-sm">
-                <Facebook className="h-4 w-4 text-gray-600 group-hover:text-red-500 transition-colors" />
+              <div className="p-2 rounded-full footer-social-button footer-social-facebook cursor-pointer group">
+                <Facebook className="h-4 w-4 footer-social-icon" />
               </div>
-              <div className="p-2 rounded-full bg-white hover:bg-orange-50 border border-gray-200 hover:border-orange-300 transition-all duration-300 cursor-pointer group shadow-sm">
-                <Instagram className="h-4 w-4 text-gray-600 group-hover:text-orange-500 transition-colors" />
+              <div className="p-2 rounded-full footer-social-button footer-social-instagram cursor-pointer group">
+                <Instagram className="h-4 w-4 footer-social-icon" />
               </div>
-              <div className="p-2 rounded-full bg-white hover:bg-yellow-50 border border-gray-200 hover:border-yellow-300 transition-all duration-300 cursor-pointer group shadow-sm">
-                <Twitter className="h-4 w-4 text-gray-600 group-hover:text-yellow-500 transition-colors" />
+              <div className="p-2 rounded-full footer-social-button footer-social-twitter cursor-pointer group">
+                <Twitter className="h-4 w-4 footer-social-icon" />
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h3 className="font-semibold text-lg text-orange-600">
+            <h3 className="font-semibold text-lg footer-section-title">
               Quick Links
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  href="/"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
-                >
+                <Link href="/" className="footer-link text-sm group">
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="footer-link-dot"></span>
                     <span>Home</span>
                   </span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/food-items"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
-                >
+                <Link href="/food-items" className="footer-link text-sm group">
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="footer-link-dot"></span>
                     <span>All Dishes</span>
                   </span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
-                >
+                <Link href="/categories" className="footer-link text-sm group">
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="footer-link-dot"></span>
                     <span>Categories</span>
                   </span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/about"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
-                >
+                <Link href="/about" className="footer-link text-sm group">
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="footer-link-dot"></span>
                     <span>About Us</span>
                   </span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
-                >
+                <Link href="/contact" className="footer-link text-sm group">
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="footer-link-dot"></span>
                     <span>Contact</span>
                   </span>
                 </Link>

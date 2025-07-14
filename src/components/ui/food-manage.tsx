@@ -24,18 +24,18 @@ export function FoodManage() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button type="button" variant="outline" className="bg-transparent">
+        <Button type="button" variant="outline" className="food-manage-trigger">
           <Utensils className="h-4 w-4 mr-2" />
           Food Manage
           <ChevronDown className="h-4 w-4 ml-2" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuItem onClick={handleAddNew} className="cursor-pointer">
+      <DropdownMenuContent align="end" className="food-manage-content">
+        <DropdownMenuItem onClick={handleAddNew} className="food-manage-item">
           <Plus className="h-4 w-4 mr-2" />
           Add New Item
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleAllFood} className="cursor-pointer">
+        <DropdownMenuItem onClick={handleAllFood} className="food-manage-item">
           <List className="h-4 w-4 mr-2" />
           All Food Items
         </DropdownMenuItem>
