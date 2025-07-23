@@ -148,7 +148,7 @@ export default function NewFoodItemPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-orange-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100/30">
       <Header onCartClick={() => setCartOpen(true)} />
 
       <div className="container mx-auto px-4 py-12 max-w-4xl">
@@ -156,7 +156,7 @@ export default function NewFoodItemPage() {
         <Button
           variant="ghost"
           onClick={() => router.back()}
-          className="mb-8 hover:bg-orange-50 hover:text-orange-600 transition-all duration-300 group"
+          className="mb-8 hover:bg-muted hover:text-muted-foreground transition-all duration-300 group"
         >
           <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to All Dishes
@@ -164,10 +164,10 @@ export default function NewFoodItemPage() {
 
         {/* Page Header */}
         <div className="text-center mb-12 animate-fadeInUp">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 mb-6 animate-scaleIn">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 to-black mb-6 animate-scaleIn">
             <Plus className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-600 via-orange-500 to-red-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent">
             Add New Dish
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -178,9 +178,9 @@ export default function NewFoodItemPage() {
 
         {/* Form */}
         <Card className="bg-card/50 backdrop-blur-sm border-border/50 shadow-xl animate-fadeInUp">
-          <CardHeader className="bg-gradient-to-r from-orange-50 to-white border-b border-orange-200">
+          <CardHeader className="bg-gradient-to-r from-muted to-white border-b border-border">
             <CardTitle className="text-2xl font-semibold text-foreground flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-gray-800 to-black">
                 <Upload className="h-5 w-5 text-white" />
               </div>
               <span>Dish Details</span>
@@ -190,7 +190,7 @@ export default function NewFoodItemPage() {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Basic Information */}
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b border-orange-200 pb-2">
+                <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
                   Basic Information
                 </h3>
 
@@ -211,7 +211,7 @@ export default function NewFoodItemPage() {
                         handleInputChange("name", e.target.value)
                       }
                       placeholder="e.g., Margherita Pizza, Beef Burger, Chicken Teriyaki..."
-                      className="h-12 rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200 transition-all duration-300"
+                      className="h-12 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground transition-all duration-300"
                       required
                     />
                   </div>
@@ -231,7 +231,7 @@ export default function NewFoodItemPage() {
                         handleInputChange("category_id", value)
                       }
                     >
-                      <SelectTrigger className="h-12 rounded-xl border-border/50 focus:border-orange-400 transition-all duration-300">
+                      <SelectTrigger className="h-12 rounded-xl border-border/50 focus:border-foreground transition-all duration-300">
                         <SelectValue placeholder="Choose a category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -265,7 +265,7 @@ export default function NewFoodItemPage() {
                     }
                     placeholder="Describe your dish in detail - ingredients, taste, cooking method, what makes it special..."
                     rows={4}
-                    className="rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200 resize-none transition-all duration-300"
+                    className="rounded-xl border-border/50 focus:border-foreground focus:ring-foreground resize-none transition-all duration-300"
                     required
                   />
                   <p className="text-xs text-muted-foreground">
@@ -277,7 +277,7 @@ export default function NewFoodItemPage() {
 
               {/* Pricing & Details */}
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b border-food-orange/20 pb-2">
+                <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
                   Pricing & Details
                 </h3>
 
@@ -305,7 +305,7 @@ export default function NewFoodItemPage() {
                           handleInputChange("price", e.target.value)
                         }
                         placeholder="0.00"
-                        className="h-12 pl-8 rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200 transition-all duration-300"
+                        className="h-12 pl-8 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground transition-all duration-300"
                         required
                       />
                     </div>
@@ -331,7 +331,7 @@ export default function NewFoodItemPage() {
                           handleInputChange("preparation_time", e.target.value)
                         }
                         placeholder="15"
-                        className="h-12 rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200 transition-all duration-300"
+                        className="h-12 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground transition-all duration-300"
                         required
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
@@ -353,7 +353,7 @@ export default function NewFoodItemPage() {
                         onChange={(e) =>
                           handleInputChange("is_available", e.target.checked)
                         }
-                        className="w-5 h-5 text-food-orange rounded focus:ring-food-orange focus:ring-offset-0"
+                        className="w-5 h-5 text-foreground rounded focus:ring-foreground focus:ring-offset-0"
                       />
                       <Label
                         htmlFor="is_available"
@@ -368,7 +368,7 @@ export default function NewFoodItemPage() {
 
               {/* Image */}
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b border-food-orange/20 pb-2">
+                <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
                   Image
                 </h3>
 
@@ -389,7 +389,7 @@ export default function NewFoodItemPage() {
                         handleInputChange("image_url", e.target.value)
                       }
                       placeholder="https://example.com/delicious-dish.jpg"
-                      className="h-12 pl-12 rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200 transition-all duration-300"
+                      className="h-12 pl-12 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground transition-all duration-300"
                     />
                   </div>
                   <div className="flex items-start space-x-2 text-sm text-muted-foreground">
@@ -437,7 +437,7 @@ export default function NewFoodItemPage() {
                   type="button"
                   variant="outline"
                   onClick={resetForm}
-                  className="flex-1 h-12 rounded-xl border-food-orange/50 text-food-orange hover:bg-food-orange/10 transition-all duration-300"
+                  className="flex-1 h-12 rounded-xl border-food-orange/50 text-foreground hover:bg-food-orange/10 transition-all duration-300"
                   disabled={loading}
                 >
                   Reset Form
@@ -445,7 +445,7 @@ export default function NewFoodItemPage() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 h-12 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+                  className="flex-1 h-12 rounded-xl bg-gradient-to-r from-gray-800 to-black hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
                 >
                   {loading ? (
                     <div className="flex items-center space-x-2">
@@ -465,34 +465,34 @@ export default function NewFoodItemPage() {
         </Card>
 
         {/* Additional Tips */}
-        <div className="mt-8 p-6 bg-food-cream/20 border border-food-orange/20 rounded-2xl animate-fadeInUp">
+        <div className="mt-8 p-6 bg-food-cream/20 border border-border rounded-2xl animate-fadeInUp">
           <h4 className="font-semibold text-foreground mb-3 flex items-center space-x-2">
             <div className="w-2 h-2 bg-food-orange rounded-full"></div>
             <span>Tips for Creating Great Dishes</span>
           </h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start space-x-2">
-              <span className="text-food-orange">•</span>
+              <span className="text-foreground">•</span>
               <span>
                 Use descriptive names that highlight key ingredients or cooking
                 methods
               </span>
             </li>
             <li className="flex items-start space-x-2">
-              <span className="text-food-orange">•</span>
+              <span className="text-foreground">•</span>
               <span>
                 Include allergen information and dietary restrictions in the
                 description
               </span>
             </li>
             <li className="flex items-start space-x-2">
-              <span className="text-food-orange">•</span>
+              <span className="text-foreground">•</span>
               <span>
                 Set realistic preparation times to manage customer expectations
               </span>
             </li>
             <li className="flex items-start space-x-2">
-              <span className="text-food-orange">•</span>
+              <span className="text-foreground">•</span>
               <span>
                 High-quality images significantly increase order likelihood
               </span>

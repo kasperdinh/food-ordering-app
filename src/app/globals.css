@@ -1,323 +1,123 @@
 @import "tailwindcss";
 
 :root {
-  /* Black and White Theme - Elegant and minimalist */
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --card: #ffffff;
-  --card-foreground: #0a0a0a;
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
-  --primary: #000000;
-  --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #404040;
-  --muted: #f8f9fa;
-  --muted-foreground: #6b7280;
-  --accent: #e5e7eb;
-  --accent-foreground: #1f2937;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #ffffff;
-  --ring: #374151;
-  --radius: 0.75rem;
-
-  /* Black and White themed colors */
-  --food-black: #000000;
-  --food-gray-dark: #374151;
-  --food-gray: #6b7280;
-  --food-gray-light: #9ca3af;
-  --food-white: #ffffff;
-  --food-cream: #f9fafb;
-  --food-silver: #e5e7eb;
-  --food-charcoal: #1f2937;
+  --foreground: #000000;
+  --logo-border: #000000;
+  --border: #e5e5e5;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark theme with black and white accents */
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ffffff;
-    --card: #1a1a1a;
-    --card-foreground: #ffffff;
-    --popover: #1a1a1a;
-    --popover-foreground: #ffffff;
-    --primary: #ffffff;
-    --primary-foreground: #000000;
-    --secondary: #2a2a2a;
-    --secondary-foreground: #e0e0e0;
-    --muted: #262626;
-    --muted-foreground: #a0a0a0;
-    --accent: #404040;
-    --accent-foreground: #ffffff;
-    --destructive: #ef4444;
-    --destructive-foreground: #ffffff;
-    --border: #404040;
-    --input: #1a1a1a;
-    --ring: #6b7280;
-
-    /* Black and White themed colors for dark mode */
-    --food-black: #ffffff;
-    --food-gray-dark: #e5e7eb;
-    --food-gray: #9ca3af;
-    --food-gray-light: #6b7280;
-    --food-white: #000000;
-    --food-cream: #1a1a1a;
-    --food-silver: #404040;
-    --food-charcoal: #d1d5db;
+    --logo-border: #ffffff;
+    --border: #262626;
+    --muted: #171717;
+    --muted-foreground: #a3a3a3;
   }
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-food-black: var(--food-black);
-  --color-food-gray-dark: var(--food-gray-dark);
-  --color-food-gray: var(--food-gray);
-  --color-food-gray-light: var(--food-gray-light);
-  --color-food-white: var(--food-white);
-  --color-food-cream: var(--food-cream);
-  --color-food-silver: var(--food-silver);
-  --color-food-charcoal: var(--food-charcoal);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --radius: var(--radius);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Header Responsive Styles */
+.header-container {
+  background: var(--background);
+  height: 64px;
+  display: flex;
+  align-items: center;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--muted);
+.header-logo-icon {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--muted-foreground);
-  border-radius: 4px;
+.header-logo-text {
+  color: var(--foreground);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+.header-nav-link {
+  position: relative;
+  color: var(--foreground);
+  transition: color 0.3s ease;
 }
 
-/* Smooth focus transitions */
-*:focus {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  transition: outline 0.2s ease;
+.header-nav-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--foreground);
+  transition: width 0.3s ease;
 }
 
-/* Enhanced animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.header-nav-link:hover .header-nav-underline {
+  width: 100%;
+}
+
+/* Food Manage Button Responsive */
+.food-manage-trigger {
+  background: transparent;
+  border: 1px solid var(--foreground);
+  transition: all 0.2s ease;
+  color: var(--foreground);
+}
+
+.food-manage-trigger:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Cart Button Responsive */
+.cart-button {
+  background: transparent;
+  border: 1px solid var(--foreground);
+  transition: all 0.2s ease;
+  color: var(--foreground);
+}
+
+.cart-button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.cart-badge {
+  background: var(--foreground);
+  color: var(--background);
+  border: 2px solid var(--background);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.5rem 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-scaleIn {
-  animation: scaleIn 0.4s ease-out forwards;
-}
-
-/* Black and White gradient backgrounds */
-.gradient-food-elegant {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-}
-
-.gradient-food-classic {
-  background: linear-gradient(135deg, #6b7280 0%, #000000 50%, #374151 100%);
-}
-
-.gradient-food-minimal {
-  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 50%, #e5e7eb 100%);
-}
-
-/* Enhanced card hover effects */
-.food-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.food-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Page specific styles */
-.page-background {
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f8f9fa 50%,
-    rgba(0, 0, 0, 0.02) 100%
-  );
-}
-
-.hero-title {
-  background: linear-gradient(135deg, #000000 0%, #374151 50%, #1f2937 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.status-indicator {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.status-green {
-  background-color: #000000;
-}
-
-.status-orange {
-  background-color: #6b7280;
-}
-
-.status-yellow {
-  background-color: #374151;
-}
-
-.category-button {
-  transition: all 0.3s ease;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  border: 2px solid var(--border);
-}
-
-.category-button:hover {
-  border-color: #6b7280;
-  color: #000000;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.category-button-active {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: scale(1.05);
-  border-color: transparent;
-}
-
-.category-button-active:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  color: white;
-}
-
-.loading-dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  animation: bounce 1s infinite;
-}
-
-.loading-dot-red {
-  background-color: #000000;
-}
-
-.loading-dot-orange {
-  background-color: #374151;
-  animation-delay: 0.1s;
-}
-
-.loading-dot-yellow {
-  background-color: #6b7280;
-  animation-delay: 0.2s;
-}
-
-.view-all-button {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-}
-
-.view-all-button:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  53%,
-  80%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  40%,
-  43% {
-    transform: translate3d(0, -30px, 0);
-  }
-  70% {
-    transform: translate3d(0, -15px, 0);
-  }
-  90% {
-    transform: translate3d(0, -4px, 0);
+  .mobile-menu-overlay {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
   }
 }
 
 /* Carousel Styles */
 .carousel-container {
-  background: linear-gradient(
-    135deg,
-    var(--background) 0%,
-    rgba(var(--secondary), 0.2) 50%,
-    rgba(var(--accent), 0.3) 100%
-  );
+  background: var(--background);
+  border: 1px solid var(--border);
 }
 
 .carousel-slide {
-  transition: all 0.7s ease-in-out;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
 }
 
 .carousel-slide-active {
@@ -326,904 +126,105 @@ body {
 }
 
 .carousel-slide-prev {
-  opacity: 0;
   transform: translateX(-100%);
 }
 
 .carousel-slide-next {
-  opacity: 0;
   transform: translateX(100%);
 }
 
 .carousel-content {
-  background: linear-gradient(
-    135deg,
-    rgba(var(--background), 0.95) 0%,
-    rgba(var(--secondary), 0.5) 100%
-  );
-  backdrop-filter: blur(8px);
-}
-
-.carousel-badge {
-  background: rgba(var(--primary), 0.1);
-  color: var(--primary);
-  border: 1px solid rgba(var(--primary), 0.2);
-}
-
-.carousel-badge:hover {
-  background: rgba(var(--primary), 0.2);
-}
-
-.carousel-title {
-  background: linear-gradient(
-    135deg,
-    var(--foreground) 0%,
-    rgba(var(--primary), 0.8) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.carousel-subtitle {
-  color: var(--primary);
-}
-
-.carousel-star {
-  fill: #6b7280;
-  color: #6b7280;
-}
-
-.carousel-icon-primary {
-  color: var(--primary);
-}
-
-.carousel-cta {
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.carousel-cta:hover {
-  background: rgba(var(--primary), 0.9);
-}
-
-.carousel-image-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(var(--primary), 0.1) 0%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-}
-
-.carousel-image-gradient {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.2) 0%,
-    transparent 50%,
-    transparent 100%
-  );
-}
-
-.carousel-nav-button {
-  background: rgba(var(--background), 0.9);
-  border: 1px solid rgba(var(--border), 0.5);
-  backdrop-filter: blur(8px);
-}
-
-.carousel-nav-button:hover {
   background: var(--background);
-}
-
-.carousel-dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  background: rgba(var(--background), 0.5);
-  border: 1px solid var(--border);
-}
-
-.carousel-dot:hover {
-  background: rgba(var(--background), 0.8);
-}
-
-.carousel-dot-active {
-  background: var(--primary);
-  width: 2rem;
-  border: none;
-}
-
-.carousel-progress {
-  background: rgba(var(--border), 0.3);
-}
-
-.carousel-progress-bar {
-  background: var(--primary);
-  transition: all 0.3s ease-linear;
-}
-
-/* Header Styles */
-.header-container {
-  border-bottom: 1px solid rgba(var(--border), 0.5);
-  background: rgba(var(--background), 0.95);
-  backdrop-filter: blur(16px);
-}
-
-@supports (backdrop-filter: blur(16px)) {
-  .header-container {
-    background: rgba(var(--background), 0.8);
-  }
-}
-
-.header-logo-icon {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  transition: all 0.3s ease;
-}
-
-.header-logo-icon:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-}
-
-.header-logo-text {
-  background: linear-gradient(135deg, #000000 0%, #374151 50%, #1f2937 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.header-nav-link {
-  color: var(--muted-foreground);
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.header-nav-link:hover {
-  color: #000000;
-}
-
-.header-nav-underline {
-  position: absolute;
-  bottom: -0.25rem;
-  left: 0;
-  width: 0;
-  height: 0.125rem;
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  transition: width 0.3s ease;
-}
-
-.header-nav-link:hover .header-nav-underline {
-  width: 100%;
-}
-
-/* Footer Styles */
-.footer-container {
-  background: linear-gradient(
-    135deg,
-    #f8f9fa 0%,
-    #ffffff 50%,
-    rgba(0, 0, 0, 0.02) 100%
-  );
-  color: #374151;
-}
-
-.footer-bg-overlay {
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.02) 50%,
-    transparent 100%
-  );
-}
-
-.footer-logo-icon {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-}
-
-.footer-logo-text {
-  background: linear-gradient(135deg, #000000 0%, #374151 50%, #1f2937 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.footer-social-button {
-  background: white;
-  border: 1px solid #e5e7eb;
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.footer-social-button:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.footer-social-facebook:hover {
-  background: #f8f9fa;
-  border-color: #d1d5db;
-}
-
-.footer-social-facebook:hover .footer-social-icon {
-  color: #374151;
-}
-
-.footer-social-instagram:hover {
-  background: rgba(0, 0, 0, 0.02);
-  border-color: #9ca3af;
-}
-
-.footer-social-instagram:hover .footer-social-icon {
-  color: #000000;
-}
-
-.footer-social-twitter:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-}
-
-.footer-social-twitter:hover .footer-social-icon {
-  color: #6b7280;
-}
-
-.footer-social-icon {
-  color: #6b7280;
-  transition: color 0.3s ease;
-}
-
-.footer-section-title {
-  color: #000000;
-}
-
-.footer-link {
-  color: #6b7280;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.footer-link:hover {
-  color: #000000;
-  transform: translateX(0.5rem);
-}
-
-.footer-link-dot {
-  width: 0.25rem;
-  height: 0.25rem;
-  background: #000000;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.footer-link:hover .footer-link-dot {
-  opacity: 1;
-}
-
-.footer-contact-item {
-  color: #6b7280;
-  transition: all 0.3s ease;
-}
-
-.footer-contact-item:hover {
-  color: #000000;
-}
-
-.footer-contact-icon {
-  color: #000000;
-}
-
-.footer-newsletter-input {
-  border: 1px solid #e5e7eb;
-  background: white;
-  transition: all 0.3s ease;
-}
-
-.footer-newsletter-input:focus {
-  border-color: #000000;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-
-.footer-newsletter-button {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.footer-newsletter-button:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.footer-bottom {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.02) 0%,
-    rgba(0, 0, 0, 0.03) 100%
-  );
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.footer-bottom-link {
-  color: #6b7280;
-  transition: color 0.3s ease;
-}
-
-.footer-bottom-link:hover {
-  color: #000000;
-}
-
-/* Food Item Card Styles */
-.food-card {
-  border: 1px solid rgba(var(--border), 0.5);
-  background: linear-gradient(
-    180deg,
-    var(--card) 0%,
-    rgba(var(--card), 0.95) 100%
-  );
-  backdrop-filter: blur(8px);
-  transition: all 0.5s ease;
-}
-
-.food-card:hover {
-  border-color: #374151;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.food-card-image {
-  transition: transform 0.7s ease-out;
-}
-
-.food-card:hover .food-card-image {
-  transform: scale(1.1);
-}
-
-.food-card-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.1) 50%,
-    transparent 100%
-  );
-  opacity: 0.6;
-  transition: opacity 0.5s ease;
-}
-
-.food-card:hover .food-card-overlay {
-  opacity: 0.8;
-}
-
-.food-card-badge {
-  background: rgba(255, 255, 255, 0.9);
-  color: #374151;
-  backdrop-filter: blur(8px);
-  border: none;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(0.5rem);
-  transition: all 0.3s ease;
-}
-
-.food-card:hover .food-card-badge {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.food-card-price-overlay {
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transform: translateY(0.5rem);
-  transition: all 0.3s ease;
-}
-
-.food-card:hover .food-card-price-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.food-card-header {
-  background: linear-gradient(
-    180deg,
-    var(--card) 0%,
-    rgba(var(--card), 0.95) 100%
-  );
-}
-
-.food-card-title {
-  transition: color 0.3s ease;
-}
-
-.food-card:hover .food-card-title {
-  color: #000000;
-}
-
-.food-card-footer {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
-}
-
-.food-card-price {
-  color: #000000;
-}
-
-.food-card-add-button {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border-radius: 9999px;
-  padding: 0.5rem 1.5rem;
-}
-
-.food-card-add-button:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transform: scale(1.05);
-}
-
-/* Cart Sidebar Styles */
-.cart-empty-icon {
-  color: var(--muted-foreground);
-}
-
-.cart-item-image {
-  border-radius: 0.5rem;
-}
-
-.cart-quantity-button {
-  background: rgba(var(--primary), 0.1);
-  color: var(--primary);
-  border: 1px solid rgba(var(--primary), 0.2);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-.cart-quantity-button:hover {
-  background: var(--primary);
-  color: white;
-}
-
-.cart-quantity-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.cart-remove-button {
-  color: var(--destructive);
-  transition: color 0.2s ease;
-}
-
-.cart-remove-button:hover {
-  color: var(--destructive);
-  opacity: 0.8;
-}
-
-.cart-checkout-button {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.cart-checkout-button:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Styles */
-.form-title {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.form-button-primary {
-  background: linear-gradient(135deg, #000000 0%, #374151 100%);
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.form-button-primary:hover {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Food Items Page Styles */
-.food-items-header {
-  background: linear-gradient(
-    135deg,
-    var(--background) 0%,
-    rgba(var(--secondary), 0.3) 100%
-  );
-}
-
-.food-items-title {
-  background: linear-gradient(135deg, #000000 0%, #374151 50%, #1f2937 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.search-container {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.search-container:focus-within {
-  border-color: #000000;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-
-.search-icon {
-  color: var(--muted-foreground);
-}
-
-.filter-select {
-  border: 1px solid var(--border);
-  transition: border-color 0.3s ease;
-}
-
-.filter-select:focus {
-  border-color: #000000;
-}
-
-.food-item-actions {
-  opacity: 0;
-  transform: translateY(0.5rem);
-  transition: all 0.3s ease;
-}
-
-.food-item:hover .food-item-actions {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.edit-button {
-  background: rgba(0, 0, 0, 0.1);
-  color: #000000;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.edit-button:hover {
-  background: #000000;
-  color: white;
-}
-
-.delete-button {
-  background: rgba(55, 65, 81, 0.1);
-  color: #374151;
-  border: 1px solid rgba(55, 65, 81, 0.2);
-  transition: all 0.2s ease;
-}
-
-.delete-button:hover {
-  background: #374151;
-  color: white;
-}
-
-/* Add Food Item Page Styles */
-.add-food-container {
-  background: linear-gradient(
-    135deg,
-    var(--background) 0%,
-    rgba(var(--secondary), 0.2) 100%
-  );
-}
-
-.add-food-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* Responsive utilities */
-@media (max-width: 768px) {
-  .food-card {
-    height: auto;
-  }
-
-  .carousel-container {
-    height: 400px;
-  }
-
-  .search-container {
-    margin-bottom: 1rem;
-  }
-}
-
-/* Animation utilities */
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.slide-up {
-  animation: slideUp 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* UI Components Styles */
-
-/* Toast Styles */
-.toast-close {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  border-radius: 0.375rem;
-  padding: 0.25rem;
-  color: rgba(var(--foreground), 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.toast-close:hover {
   color: var(--foreground);
 }
 
-.toast-close:focus {
-  opacity: 1;
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
+.carousel-title {
+  color: var(--foreground);
+  background: linear-gradient(
+    135deg,
+    var(--foreground) 0%,
+    var(--muted-foreground) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-.toast-group:hover .toast-close {
-  opacity: 1;
+.carousel-subtitle {
+  color: var(--muted-foreground);
 }
 
-.toast-destructive .toast-close {
-  color: #9ca3af;
+.carousel-badge {
+  background: var(--foreground);
+  color: var(--background);
+  border: none;
 }
 
-.toast-destructive .toast-close:hover {
-  color: #f9fafb;
+.carousel-cta {
+  background: var(--foreground);
+  color: var(--background);
+  border: 2px solid var(--foreground);
+  transition: all 0.3s ease;
 }
 
-.toast-destructive .toast-close:focus {
-  box-shadow: 0 0 0 2px #6b7280;
-  outline-offset: 2px;
+.carousel-cta:hover {
+  background: var(--background);
+  color: var(--foreground);
+  border-color: var(--foreground);
 }
 
-/* Table Styles */
-.table-container {
-  width: 100%;
-  caption-side: bottom;
-  font-size: 0.875rem;
+.carousel-nav-button {
+  background: var(--background);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  backdrop-filter: blur(10px);
 }
 
-.table-header {
-  border-bottom: 1px solid var(--border);
+.carousel-nav-button:hover {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
 }
 
-.table-body {
-  border-bottom: 0;
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--muted);
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.table-footer {
-  border-top: 1px solid var(--border);
-  background: rgba(var(--muted), 0.5);
-  font-weight: 500;
+.carousel-dot-active {
+  background: var(--foreground);
+  border-color: var(--foreground);
+  transform: scale(1.2);
 }
 
-.table-row {
-  border-bottom: 1px solid var(--border);
-  transition: background-color 0.2s ease;
-}
-
-.table-row:hover {
-  background: rgba(var(--muted), 0.5);
-}
-
-.table-row[data-state="selected"] {
+.carousel-progress {
   background: var(--muted);
 }
 
-.table-head {
-  height: 3rem;
-  padding: 0 1rem;
-  text-align: left;
-  vertical-align: middle;
-  font-weight: 500;
+.carousel-progress-bar {
+  background: var(--foreground);
+  transition: width 0.3s ease;
+}
+
+.carousel-star {
+  color: var(--foreground);
+  fill: var(--foreground);
+}
+
+.carousel-icon-primary {
   color: var(--muted-foreground);
 }
 
-.table-cell {
-  padding: 1rem;
-  vertical-align: middle;
+.carousel-image-overlay {
+  background: linear-gradient(45deg, var(--background) 0%, transparent 50%);
+  opacity: 0.8;
 }
 
-.table-caption {
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-}
-
-/* Checkbox Styles */
-.checkbox-root {
-  height: 1rem;
-  width: 1rem;
-  border-radius: 0.125rem;
-  border: 1px solid var(--primary);
-  background: var(--background);
-  transition: all 0.2s ease;
-}
-
-.checkbox-root:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
-  outline-offset: 2px;
-}
-
-.checkbox-root:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.checkbox-root[data-state="checked"] {
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.checkbox-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: currentColor;
-}
-
-/* Context Menu Styles */
-.context-menu-trigger {
-  display: flex;
-  cursor: default;
-  user-select: none;
-  align-items: center;
-  border-radius: 0.125rem;
-  padding: 0.5rem 0.375rem;
-  font-size: 0.875rem;
-  outline: none;
-}
-
-.context-menu-trigger:focus {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.context-menu-trigger[data-state="open"] {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.context-menu-content {
-  z-index: 50;
-  min-width: 8rem;
-  overflow: hidden;
-  border-radius: 0.375rem;
-  border: 1px solid var(--border);
-  background: var(--popover);
-  padding: 0.25rem;
-  color: var(--popover-foreground);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.context-menu-item {
-  position: relative;
-  display: flex;
-  cursor: default;
-  user-select: none;
-  align-items: center;
-  border-radius: 0.125rem;
-  padding: 0.375rem 0.5rem;
-  font-size: 0.875rem;
-  outline: none;
-  transition: background-color 0.2s ease;
-}
-
-.context-menu-item:focus {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.context-menu-item[data-disabled] {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* Food Manage Dropdown Styles */
-.food-manage-trigger {
-  background: transparent;
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
-}
-
-.food-manage-trigger:hover {
-  background: rgba(var(--accent), 0.1);
-}
-
-.food-manage-content {
-  width: 12rem;
-}
-
-.food-manage-item {
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.food-manage-item:hover {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Cart Badge Styles */
-.cart-button {
-  position: relative;
-  background: transparent;
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
-}
-
-.cart-button:hover {
-  background: rgba(var(--accent), 0.1);
-}
-
-.cart-badge {
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
-  height: 1.25rem;
-  width: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  font-size: 0.75rem;
-  background: var(--destructive);
-  color: var(--destructive-foreground);
-  border-radius: 50%;
-}
-
-/* Generic UI Utilities */
-.ui-focus-ring:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
-  outline-offset: 2px;
-}
-
-.ui-transition {
-  transition: all 0.2s ease;
-}
-
-.ui-disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.ui-selected {
-  background: var(--accent);
-  color: var(--accent-foreground);
+.carousel-image-gradient {
+  background: linear-gradient(to right, var(--background) 0%, transparent 100%);
+  opacity: 0.4;
 }

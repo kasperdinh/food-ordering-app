@@ -51,7 +51,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen page-background">
+    <div className="min-h-screen">
       <Header onCartClick={() => setCartOpen(true)} />
 
       <Carousel />

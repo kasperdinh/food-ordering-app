@@ -138,7 +138,7 @@ export default function FoodItemsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-orange-50/30">
+      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100/30">
         <Header onCartClick={() => setCartOpen(true)} />
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-64">
@@ -165,13 +165,13 @@ export default function FoodItemsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-orange-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100/30">
       <Header onCartClick={() => setCartOpen(true)} />
 
       <div className="container mx-auto px-4 py-12">
         {/* Page Header */}
         <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-600 via-orange-500 to-red-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent">
             All Dishes
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

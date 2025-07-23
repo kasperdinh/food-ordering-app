@@ -52,10 +52,10 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent className="w-full sm:max-w-lg bg-gradient-to-b from-background to-background/95 border-l border-border/50 backdrop-blur-xl">
-        <SheetHeader className="border-b border-orange-200 pb-6">
+        <SheetHeader className="border-b border-border pb-6">
           <SheetTitle className="text-foreground text-xl font-semibold flex items-center space-x-2">
-            <div className="p-2 rounded-lg footer-logo-icon">
-              <ShoppingBag className="h-5 w-5 text-white" />
+            <div className="p-2 rounded-lg bg-foreground">
+              <ShoppingBag className="h-5 w-5 text-background" />
             </div>
             <span>Your Cart</span>
           </SheetTitle>
@@ -65,8 +65,8 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
           <div className="flex-1 overflow-y-auto py-6">
             {state.items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
-                <div className="p-6 rounded-full bg-gradient-to-r from-orange-50 to-orange-100">
-                  <ShoppingBag className="h-16 w-16 cart-empty-icon" />
+                <div className="p-6 rounded-full bg-muted">
+                  <ShoppingBag className="h-16 w-16 text-muted-foreground" />
                 </div>
                 <div className="space-y-2">
                   <p className="text-lg font-medium text-foreground">
@@ -83,24 +83,24 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                 {state.items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-card to-card/80 border border-border/50 hover:border-orange-300 transition-all duration-300 group hover:shadow-lg"
+                    className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-card to-card/80 border border-border/50 hover:border-border transition-all duration-300 group hover:shadow-lg"
                   >
                     <div className="w-20 h-20 relative flex-shrink-0">
                       <Image
                         src={item.image_url || "/placeholder.svg"}
                         alt={item.name}
                         fill
-                        className="object-cover cart-item-image border-2 border-border/20 group-hover:border-orange-300 transition-all duration-300"
+                        className="object-cover cart-item-image border-2 border-border/20 group-hover:border-border transition-all duration-300"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-foreground group-hover:text-orange-600 transition-colors truncate">
+                      <h4 className="font-semibold text-foreground group-hover:text-muted-foreground transition-colors truncate">
                         {item.name}
                       </h4>
                       <p className="text-sm text-muted-foreground">
                         ${item.price} each
                       </p>
-                      <p className="text-xs text-orange-500 font-medium">
+                      <p className="text-xs text-foreground font-medium">
                         ${(item.price * item.quantity).toFixed(2)} total
                       </p>
                     </div>
@@ -146,7 +146,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
           </div>
 
           {state.items.length > 0 && (
-            <div className="mt-auto border-t border-orange-200 pt-6 space-y-4 bg-gradient-to-t from-orange-50 to-transparent rounded-t-xl">
+            <div className="mt-auto border-t border-border pt-6 space-y-4 bg-gradient-to-t from-muted to-transparent rounded-t-xl">
               <div className="space-y-2">
                 <div className="flex justify-between text-sm text-muted-foreground">
                   <span>
@@ -158,17 +158,17 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                 </div>
                 <div className="flex justify-between text-sm text-muted-foreground">
                   <span>Delivery Fee</span>
-                  <span className="text-green-500">Free</span>
+                  <span className="text-foreground">Free</span>
                 </div>
                 <div className="flex justify-between text-xl font-bold border-t border-border/30 pt-2">
                   <span className="text-foreground">Total</span>
-                  <span className="text-orange-600">
+                  <span className="text-foreground">
                     ${state.total.toFixed(2)}
                   </span>
                 </div>
               </div>
               <Button
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 py-3 text-lg font-semibold rounded-xl"
+                className="w-full bg-foreground hover:bg-muted-foreground text-background shadow-lg hover:shadow-xl transition-all duration-300 py-3 text-lg font-semibold rounded-xl"
                 onClick={() => setShowCheckout(true)}
               >
                 Proceed to Checkout

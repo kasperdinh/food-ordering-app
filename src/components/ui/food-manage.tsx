@@ -24,10 +24,15 @@ export function FoodManage() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button type="button" variant="outline" className="food-manage-trigger">
-          <Utensils className="h-4 w-4 mr-2" />
-          Food Manage
-          <ChevronDown className="h-4 w-4 ml-2" />
+        <Button
+          type="button"
+          variant="outline"
+          className="food-manage-trigger h-9 px-2 sm:px-3 lg:px-4"
+        >
+          <Utensils className="h-4 w-4 sm:mr-2" />
+          <span className="hidden sm:inline">Food Manage</span>
+          <span className="sm:hidden">Manage</span>
+          <ChevronDown className="h-4 w-4 ml-1 sm:ml-2" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="food-manage-content">

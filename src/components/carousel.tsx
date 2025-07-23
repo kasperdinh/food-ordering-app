@@ -26,10 +26,10 @@ interface CarouselSlide {
 const slides: CarouselSlide[] = [
   {
     id: 1,
-    title: "Delicious Food Delivered Fast",
+    title: "Fresh Food Delivered Fast",
     subtitle: "Order Now",
     description:
-      "Enjoy the best dishes from top restaurants delivered right to your doorstep in under 30 minutes.",
+      "Experience the finest culinary creations delivered to your door. Quality ingredients, expert preparation, unmatched flavor.",
     image: "/placeholder.jpg",
     cta: "Order Now",
     ctaLink: "/food-items",
@@ -42,14 +42,14 @@ const slides: CarouselSlide[] = [
   },
   {
     id: 2,
-    title: "Fresh Ingredients, Amazing Taste",
-    subtitle: "Quality Guaranteed",
+    title: "Premium Quality Guaranteed",
+    subtitle: "Excellence",
     description:
-      "We partner with restaurants that use only the freshest ingredients to create memorable dining experiences.",
+      "We partner with top chefs who use only the freshest ingredients to create exceptional dining experiences you'll remember.",
     image: "/placeholder.jpg",
     cta: "Explore Menu",
     ctaLink: "/food-items",
-    badge: "Premium Quality",
+    badge: "Premium",
     stats: {
       rating: 4.9,
       time: "30 min",
@@ -58,14 +58,14 @@ const slides: CarouselSlide[] = [
   },
   {
     id: 3,
-    title: "Special Offers & Discounts",
+    title: "Special Offers Available",
     subtitle: "Save More",
     description:
-      "Get up to 50% off on your favorite meals. Limited time offers available for new and existing customers.",
+      "Enjoy exclusive discounts on your favorite meals. Limited time offers for both new and returning customers.",
     image: "/placeholder.jpg",
     cta: "View Offers",
     ctaLink: "/food-items",
-    badge: "50% OFF",
+    badge: "Special Deal",
     stats: {
       rating: 4.7,
       time: "20 min",
@@ -106,7 +106,7 @@ export function Carousel() {
 
   return (
     <div
-      className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-xl carousel-container shadow-lg"
+      className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl carousel-container shadow-lg mx-auto"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -124,55 +124,55 @@ export function Carousel() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
             {/* Content Side */}
-            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-6 carousel-content">
+            <div className="flex flex-col justify-center p-6 md:p-8 lg:p-12 space-y-4 md:space-y-6 carousel-content">
               {/* Badge */}
               {slide.badge && (
-                <Badge className="w-fit carousel-badge transition-colors">
+                <Badge className="w-fit carousel-badge text-sm font-medium px-3 py-1">
                   {slide.badge}
                 </Badge>
               )}
 
               {/* Title */}
               <div className="space-y-2">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight carousel-title">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight carousel-title">
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl carousel-subtitle font-medium">
+                <p className="text-base md:text-lg lg:text-xl carousel-subtitle font-medium">
                   {slide.subtitle}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-md">
+              <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed max-w-lg">
                 {slide.description}
               </p>
 
               {/* Stats */}
               {slide.stats && (
-                <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground">
                   <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 carousel-star" />
+                    <Star className="h-3 w-3 md:h-4 md:w-4 carousel-star" />
                     <span className="font-medium text-foreground">
                       {slide.stats.rating}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Clock className="h-4 w-4 carousel-icon-primary" />
+                    <Clock className="h-3 w-3 md:h-4 md:w-4 carousel-icon-primary" />
                     <span>{slide.stats.time}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Users className="h-4 w-4 carousel-icon-primary" />
+                    <Users className="h-3 w-3 md:h-4 md:w-4 carousel-icon-primary" />
                     <span>{slide.stats.served} served</span>
                   </div>
                 </div>
               )}
 
               {/* CTA Button */}
-              <div className="pt-4">
+              <div className="pt-2 md:pt-4">
                 <Link href={slide.ctaLink}>
                   <Button
                     size="lg"
-                    className="carousel-cta px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg"
+                    className="carousel-cta px-6 md:px-8 py-2 md:py-3 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg text-sm md:text-base font-medium"
                   >
                     {slide.cta}
                   </Button>
@@ -182,15 +182,15 @@ export function Carousel() {
 
             {/* Image Side */}
             <div className="relative hidden lg:block">
-              <div className="absolute inset-0 carousel-image-overlay rounded-l-3xl" />
+              <div className="absolute inset-0 carousel-image-overlay rounded-l-xl" />
               <Image
                 src={slide.image}
                 alt={slide.title}
                 fill
-                className="object-cover rounded-l-3xl"
+                className="object-cover rounded-l-xl"
                 priority={index === 0}
               />
-              <div className="absolute inset-0 carousel-image-gradient rounded-l-3xl" />
+              <div className="absolute inset-0 carousel-image-gradient rounded-l-xl" />
             </div>
           </div>
         </div>
@@ -200,23 +200,23 @@ export function Carousel() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-200"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-300 w-8 h-8 md:w-10 md:h-10"
         onClick={prevSlide}
       >
-        <ChevronLeft className="h-4 w-4" />
+        <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
       </Button>
 
       <Button
         variant="outline"
         size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-200"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 carousel-nav-button shadow-lg hover:shadow-xl transition-all duration-300 w-8 h-8 md:w-10 md:h-10"
         onClick={nextSlide}
       >
-        <ChevronRight className="h-4 w-4" />
+        <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
       </Button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}

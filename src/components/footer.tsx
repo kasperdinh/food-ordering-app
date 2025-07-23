@@ -98,17 +98,17 @@ export function Footer() {
 
           {/* Customer Service */}
           <div className="space-y-6">
-            <h3 className="font-semibold text-lg text-orange-600">
+            <h3 className="font-semibold text-lg text-foreground">
               Customer Service
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/help"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     <span>Help Center</span>
                   </span>
                 </Link>
@@ -116,10 +116,10 @@ export function Footer() {
               <li>
                 <Link
                   href="/orders"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     <span>Track Orders</span>
                   </span>
                 </Link>
@@ -127,10 +127,10 @@ export function Footer() {
               <li>
                 <Link
                   href="/returns"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     <span>Return Policy</span>
                   </span>
                 </Link>
@@ -138,10 +138,10 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     <span>Privacy Policy</span>
                   </span>
                 </Link>
@@ -149,10 +149,10 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-gray-600 hover:text-orange-600 transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
-                    <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     <span>Terms of Service</span>
                   </span>
                 </Link>
@@ -162,7 +162,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h3 className="font-semibold text-lg text-orange-600">
+            <h3 className="font-semibold text-lg text-foreground">
               Get in Touch
             </h3>
             <div className="space-y-4">
@@ -179,8 +179,8 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center space-x-3 group">
-                <div className="p-2 rounded-lg bg-white border border-gray-200 group-hover:bg-orange-50 group-hover:border-orange-300 transition-all duration-300 shadow-sm">
-                  <Phone className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                <div className="p-2 rounded-lg bg-white border border-gray-200 group-hover:bg-muted group-hover:border-foreground transition-all duration-300 shadow-sm">
+                  <Phone className="h-4 w-4 text-foreground flex-shrink-0" />
                 </div>
                 <span className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-300">
                   +84 123 456 789
@@ -198,7 +198,7 @@ export function Footer() {
 
             {/* Working Hours */}
             <div className="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
-              <h4 className="font-medium text-sm mb-3 text-orange-600 flex items-center space-x-2">
+              <h4 className="font-medium text-sm mb-3 text-foreground flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span>We&apos;re Open</span>
               </h4>
@@ -231,19 +231,19 @@ export function Footer() {
             <div className="flex space-x-6">
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-orange-600 transition-colors text-sm duration-300"
+                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms"
-                className="text-gray-500 hover:text-orange-600 transition-colors text-sm duration-300"
+                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
               >
                 Terms
               </Link>
               <Link
                 href="/cookies"
-                className="text-gray-500 hover:text-orange-600 transition-colors text-sm duration-300"
+                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
               >
                 Cookies
               </Link>
