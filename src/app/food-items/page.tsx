@@ -191,7 +191,7 @@ export default function FoodItemsPage() {
                   placeholder="Search for your favorite dishes..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-12 h-12 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground"
+                  className="pl-12 h-12 rounded-xl"
                 />
               </div>
 
@@ -205,7 +205,7 @@ export default function FoodItemsPage() {
                   value={selectedCategory}
                   onValueChange={setSelectedCategory}
                 >
-                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-foreground">
+                  <SelectTrigger className="w-52 h-12 rounded-xl">
                     <SelectValue placeholder="Filter by category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -228,7 +228,7 @@ export default function FoodItemsPage() {
                   Sort by
                 </span>
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-foreground">
+                  <SelectTrigger className="w-52 h-12 rounded-xl">
                     <SelectValue placeholder="Sort by" />
                   </SelectTrigger>
                   <SelectContent>

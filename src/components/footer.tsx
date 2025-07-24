@@ -13,17 +13,14 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden footer-container">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 footer-bg-overlay"></div>
-      </div>
 
       <div className="container relative mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t pt-8">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <div className="p-2 rounded-xl footer-logo-icon">
-                <Utensils className="h-6 w-6 text-white" />
+                <Utensils className="h-6 w-6" />
               </div>
               <span className="font-bold text-2xl footer-logo-text">
                 FoodOrder
@@ -36,13 +33,13 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <div className="p-2 rounded-full footer-social-button footer-social-facebook cursor-pointer group">
-                <Facebook className="h-4 w-4 footer-social-icon" />
+                <Facebook className="h-6 w-6 footer-social-icon" />
               </div>
               <div className="p-2 rounded-full footer-social-button footer-social-instagram cursor-pointer group">
-                <Instagram className="h-4 w-4 footer-social-icon" />
+                <Instagram className="h-6 w-6 footer-social-icon" />
               </div>
               <div className="p-2 rounded-full footer-social-button footer-social-twitter cursor-pointer group">
-                <Twitter className="h-4 w-4 footer-social-icon" />
+                <Twitter className="h-6 w-6 footer-social-icon" />
               </div>
             </div>
           </div>
@@ -105,7 +102,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/help"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -116,7 +113,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/orders"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -127,7 +124,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/returns"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -138,7 +135,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -149,7 +146,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
