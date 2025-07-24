@@ -138,19 +138,19 @@ export default function FoodItemsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100/30">
+      <div className="min-h-screen bg-background">
         <Header onCartClick={() => setCartOpen(true)} />
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-64">
             <div className="flex flex-col items-center space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full animate-bounce"></div>
+                <div className="w-3 h-3 bg-foreground rounded-full animate-bounce"></div>
                 <div
-                  className="w-3 h-3 bg-orange-500 rounded-full animate-bounce"
+                  className="w-3 h-3 bg-muted-foreground rounded-full animate-bounce"
                   style={{ animationDelay: "0.1s" }}
                 ></div>
                 <div
-                  className="w-3 h-3 bg-yellow-500 rounded-full animate-bounce"
+                  className="w-3 h-3 bg-foreground rounded-full animate-bounce"
                   style={{ animationDelay: "0.2s" }}
                 ></div>
               </div>
@@ -191,21 +191,21 @@ export default function FoodItemsPage() {
                   placeholder="Search for your favorite dishes..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-12 h-12 rounded-xl border-border/50 focus:border-orange-400 focus:ring-orange-200"
+                  className="pl-12 h-12 rounded-xl border-border/50 focus:border-foreground focus:ring-foreground"
                 />
               </div>
 
               {/* Category Filter */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-                  <Filter className="h-4 w-4 text-orange-500" />
+                  <Filter className="h-4 w-4" />
                   <span>Category</span>
                 </div>
                 <Select
                   value={selectedCategory}
                   onValueChange={setSelectedCategory}
                 >
-                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-orange-400">
+                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-foreground">
                     <SelectValue placeholder="Filter by category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -228,7 +228,7 @@ export default function FoodItemsPage() {
                   Sort by
                 </span>
                 <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-orange-400">
+                  <SelectTrigger className="w-52 h-12 rounded-xl border-border/50 focus:border-foreground">
                     <SelectValue placeholder="Sort by" />
                   </SelectTrigger>
                   <SelectContent>
@@ -251,13 +251,13 @@ export default function FoodItemsPage() {
 
         {/* Results Info */}
         <div className="mb-8">
-          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+          <div className="bg-muted border border-border rounded-xl p-4">
             <p className="text-sm font-medium text-foreground flex items-center space-x-2">
-              <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+              <span className="w-2 h-2 bg-foreground rounded-full"></span>
               <span>
                 Showing {filteredItems.length} of {foodItems.length} dishes
                 {selectedCategory !== "all" && (
-                  <span className="text-orange-600">
+                  <span className="text-foreground">
                     {" "}
                     in{" "}
                     {
@@ -282,8 +282,8 @@ export default function FoodItemsPage() {
         {filteredItems.length === 0 ? (
           <div className="text-center py-16">
             <div className="max-w-md mx-auto space-y-6">
-              <div className="p-8 rounded-full bg-gradient-to-r from-food-cream to-food-cream/50 w-32 h-32 mx-auto flex items-center justify-center">
-                <Search className="h-12 w-12 text-food-orange" />
+              <div className="p-8 rounded-full bg-muted w-32 h-32 mx-auto flex items-center justify-center">
+                <Search className="h-12 w-12 text-foreground" />
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold text-foreground">
@@ -296,7 +296,7 @@ export default function FoodItemsPage() {
               </div>
               <Button
                 variant="outline"
-                className="border-food-orange text-food-orange hover:bg-food-orange hover:text-white transition-all duration-300"
+                className="border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedCategory("all");
@@ -320,7 +320,7 @@ export default function FoodItemsPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="flex-1 border-food-orange/30 text-food-orange hover:bg-food-orange hover:text-white transition-all duration-300"
+                      className="flex-1 border-border text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                       onClick={() => handleEdit(item)}
                     >
                       <Edit className="h-3 w-3 mr-2" />
@@ -329,7 +329,7 @@ export default function FoodItemsPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="flex-1 border-red-300 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300"
+                      className="flex-1 border-border text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                       onClick={() => handleDelete(item)}
                     >
                       <Trash2 className="h-3 w-3 mr-2" />

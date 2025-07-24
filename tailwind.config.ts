@@ -63,23 +63,6 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom food-themed colors
-        food: {
-          tomato: "hsl(15 85% 55%)",
-          "tomato-light": "hsl(15 85% 65%)",
-          "tomato-dark": "hsl(15 85% 45%)",
-          golden: "hsl(45 85% 50%)",
-          "golden-light": "hsl(45 85% 60%)",
-          "golden-dark": "hsl(45 85% 40%)",
-          cream: "hsl(30 25% 94%)",
-          "cream-dark": "hsl(30 25% 85%)",
-          terracotta: "hsl(12 65% 60%)",
-          "terracotta-light": "hsl(12 65% 70%)",
-          "terracotta-dark": "hsl(12 65% 50%)",
-          sage: "hsl(120 40% 40%)",
-          "sage-light": "hsl(120 40% 50%)",
-          "sage-dark": "hsl(120 40% 30%)",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",

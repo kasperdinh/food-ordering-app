@@ -56,11 +56,6 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
             {item.preparation_time} min
           </Badge>
         </div>
-        <div className="absolute bottom-3 left-3 food-card-price-overlay">
-          <span className="text-white text-2xl font-bold drop-shadow-lg">
-            ${item.price}
-          </span>
-        </div>
       </div>
 
       <CardHeader className="flex-1 pb-3 px-5 pt-4 food-card-header">
@@ -76,9 +71,6 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
         <div className="flex flex-col">
           <span className="text-2xl font-bold food-card-price">
             ${item.price}
-          </span>
-          <span className="text-xs text-muted-foreground">
-            {item.preparation_time} min prep
           </span>
         </div>
         <Button

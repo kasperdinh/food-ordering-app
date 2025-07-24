@@ -109,7 +109,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 rounded-full hover:bg-red-50 hover:text-red-500"
+                          className="h-8 w-8 rounded-full hover:bg-muted hover:text-foreground"
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
@@ -122,7 +122,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 rounded-full hover:bg-green-50 hover:text-green-500"
+                          className="h-8 w-8 rounded-full hover:bg-muted hover:text-foreground"
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }

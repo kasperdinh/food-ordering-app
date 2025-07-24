@@ -202,7 +202,7 @@ export default function NewFoodItemPage() {
                       className="text-base font-medium text-foreground flex items-center space-x-2"
                     >
                       <span>Dish Name</span>
-                      <span className="text-red-500">*</span>
+                      <span className="text-foreground">*</span>
                     </Label>
                     <Input
                       id="name"
@@ -223,7 +223,7 @@ export default function NewFoodItemPage() {
                       className="text-base font-medium text-foreground flex items-center space-x-2"
                     >
                       <span>Category</span>
-                      <span className="text-red-500">*</span>
+                      <span className="text-foreground">*</span>
                     </Label>
                     <Select
                       value={formData.category_id}
@@ -255,7 +255,7 @@ export default function NewFoodItemPage() {
                     className="text-base font-medium text-foreground flex items-center space-x-2"
                   >
                     <span>Description</span>
-                    <span className="text-red-500">*</span>
+                    <span className="text-foreground">*</span>
                   </Label>
                   <Textarea
                     id="description"
@@ -289,7 +289,7 @@ export default function NewFoodItemPage() {
                       className="text-base font-medium text-foreground flex items-center space-x-2"
                     >
                       <span>Price ($)</span>
-                      <span className="text-red-500">*</span>
+                      <span className="text-foreground">*</span>
                     </Label>
                     <div className="relative">
                       <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
@@ -318,7 +318,7 @@ export default function NewFoodItemPage() {
                       className="text-base font-medium text-foreground flex items-center space-x-2"
                     >
                       <span>Prep Time</span>
-                      <span className="text-red-500">*</span>
+                      <span className="text-foreground">*</span>
                     </Label>
                     <div className="relative">
                       <Input
@@ -393,7 +393,7 @@ export default function NewFoodItemPage() {
                     />
                   </div>
                   <div className="flex items-start space-x-2 text-sm text-muted-foreground">
-                    <div className="w-1 h-1 bg-food-orange rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1 h-1 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
                     <p>
                       Optional: Add a URL to a high-quality image of your dish.
                       This helps customers see what they&apos;re ordering.
@@ -437,7 +437,7 @@ export default function NewFoodItemPage() {
                   type="button"
                   variant="outline"
                   onClick={resetForm}
-                  className="flex-1 h-12 rounded-xl border-food-orange/50 text-foreground hover:bg-food-orange/10 transition-all duration-300"
+                  className="flex-1 h-12 rounded-xl border-border text-foreground hover:bg-muted transition-all duration-300"
                   disabled={loading}
                 >
                   Reset Form
@@ -445,7 +445,7 @@ export default function NewFoodItemPage() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 h-12 rounded-xl bg-gradient-to-r from-gray-800 to-black hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
+                  className="flex-1 h-12 rounded-xl bg-foreground hover:bg-muted-foreground text-background shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50"
                 >
                   {loading ? (
                     <div className="flex items-center space-x-2">
@@ -465,9 +465,9 @@ export default function NewFoodItemPage() {
         </Card>
 
         {/* Additional Tips */}
-        <div className="mt-8 p-6 bg-food-cream/20 border border-border rounded-2xl animate-fadeInUp">
+        <div className="mt-8 p-6 bg-muted border border-border rounded-2xl animate-fadeInUp">
           <h4 className="font-semibold text-foreground mb-3 flex items-center space-x-2">
-            <div className="w-2 h-2 bg-food-orange rounded-full"></div>
+            <div className="w-2 h-2 bg-foreground rounded-full"></div>
             <span>Tips for Creating Great Dishes</span>
           </h4>
           <ul className="space-y-2 text-sm text-muted-foreground">

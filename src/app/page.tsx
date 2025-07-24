@@ -69,15 +69,15 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="status-indicator status-green"></div>
+                <div className="w-2 h-2 bg-foreground rounded-full"></div>
                 <span>30+ restaurants</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="status-indicator status-orange"></div>
+                <div className="w-2 h-2 bg-foreground rounded-full"></div>
                 <span>15-30 min delivery</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="status-indicator status-yellow"></div>
+                <div className="w-2 h-2 bg-foreground rounded-full"></div>
                 <span>100% fresh ingredients</span>
               </div>
             </div>
@@ -124,9 +124,15 @@ export default function HomePage() {
             <div className="text-center py-16">
               <div className="inline-flex flex-col items-center space-y-4">
                 <div className="flex items-center space-x-2">
-                  <div className="loading-dot loading-dot-red"></div>
-                  <div className="loading-dot loading-dot-orange"></div>
-                  <div className="loading-dot loading-dot-yellow"></div>
+                  <div className="w-3 h-3 bg-foreground rounded-full animate-bounce"></div>
+                  <div
+                    className="w-3 h-3 bg-muted-foreground rounded-full animate-bounce"
+                    style={{ animationDelay: "0.1s" }}
+                  ></div>
+                  <div
+                    className="w-3 h-3 bg-foreground rounded-full animate-bounce"
+                    style={{ animationDelay: "0.2s" }}
+                  ></div>
                 </div>
                 <p className="text-lg text-muted-foreground font-medium">
                   Preparing your delicious menu...

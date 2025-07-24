@@ -29,7 +29,7 @@ export function Footer() {
                 FoodOrder
               </span>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Bringing you the finest culinary experiences with authentic
               flavors, fresh ingredients, and swift delivery right to your
               doorstep.
@@ -105,7 +105,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/help"
-                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -116,7 +116,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/orders"
-                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -127,7 +127,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/returns"
-                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -138,7 +138,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -149,7 +149,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-gray-600 hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 text-sm hover:translate-x-2 inline-block group"
                 >
                   <span className="flex items-center space-x-2">
                     <span className="w-1 h-1 bg-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -167,10 +167,10 @@ export function Footer() {
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3 group">
-                <div className="p-2 rounded-lg bg-white border border-gray-200 group-hover:bg-red-50 group-hover:border-red-300 transition-all duration-300 shadow-sm">
-                  <MapPin className="h-4 w-4 text-red-500 flex-shrink-0" />
+                <div className="p-2 rounded-lg bg-background border border-border group-hover:bg-muted transition-all duration-300 shadow-sm">
+                  <MapPin className="h-4 w-4 text-foreground flex-shrink-0" />
                 </div>
-                <span className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-300 leading-relaxed">
+                <span className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300 leading-relaxed">
                   123 Culinary Street
                   <br />
                   District 1, Ho Chi Minh City
@@ -179,39 +179,39 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center space-x-3 group">
-                <div className="p-2 rounded-lg bg-white border border-gray-200 group-hover:bg-muted group-hover:border-foreground transition-all duration-300 shadow-sm">
+                <div className="p-2 rounded-lg bg-background border border-border group-hover:bg-muted transition-all duration-300 shadow-sm">
                   <Phone className="h-4 w-4 text-foreground flex-shrink-0" />
                 </div>
-                <span className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-300">
+                <span className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">
                   +84 123 456 789
                 </span>
               </div>
               <div className="flex items-center space-x-3 group">
-                <div className="p-2 rounded-lg bg-white border border-gray-200 group-hover:bg-yellow-50 group-hover:border-yellow-300 transition-all duration-300 shadow-sm">
-                  <Mail className="h-4 w-4 text-yellow-500 flex-shrink-0" />
+                <div className="p-2 rounded-lg bg-background border border-border group-hover:bg-muted transition-all duration-300 shadow-sm">
+                  <Mail className="h-4 w-4 text-foreground flex-shrink-0" />
                 </div>
-                <span className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-300">
+                <span className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">
                   hello@foodorder.vn
                 </span>
               </div>
             </div>
 
             {/* Working Hours */}
-            <div className="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
+            <div className="p-4 rounded-xl bg-background border border-border shadow-sm">
               <h4 className="font-medium text-sm mb-3 text-foreground flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-foreground rounded-full animate-pulse"></div>
                 <span>We&apos;re Open</span>
               </h4>
-              <div className="text-gray-600 text-xs space-y-2">
+              <div className="text-muted-foreground text-xs space-y-2">
                 <div className="flex justify-between">
                   <span>Mon - Fri</span>
-                  <span className="text-green-600 font-medium">
+                  <span className="text-foreground font-medium">
                     8:00 AM - 10:00 PM
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Weekends</span>
-                  <span className="text-green-600 font-medium">
+                  <span className="text-foreground font-medium">
                     9:00 AM - 11:00 PM
                   </span>
                 </div>
@@ -221,29 +221,29 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 mt-12 pt-8">
+        <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-500 text-sm flex items-center space-x-2">
+            <div className="text-muted-foreground text-sm flex items-center space-x-2">
               <span>© 2025 FoodOrder. All rights reserved.</span>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+              <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
               <span>Made with ❤️ for food lovers</span>
             </div>
             <div className="flex space-x-6">
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm duration-300"
               >
                 Privacy
               </Link>
               <Link
                 href="/terms"
-                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm duration-300"
               >
                 Terms
               </Link>
               <Link
                 href="/cookies"
-                className="text-gray-500 hover:text-foreground transition-colors text-sm duration-300"
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm duration-300"
               >
                 Cookies
               </Link>
