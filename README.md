@@ -1,6 +1,6 @@
 # Food Ordering App
 
-A modern food ordering application built with Next.js and styled with a clean black and white design system. This project allows users to browse food items, manage their cart, and place orders through an intuitive interface.
+A modern food ordering application built with Next.js. This project allows users to browse food items, manage their cart, and place orders through an intuitive interface.
 
 ## Features
 
