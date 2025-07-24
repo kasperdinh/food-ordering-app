@@ -241,3 +241,14 @@ body {
   color: var(--background);
   border-color: var(--foreground);
 }
+
+.category-button:hover {
+  background: var(--foreground);
+  color: var(--background);
+  transition: all 0.3s ease;
+}
+
+.category-button-active {
+  background: var(--foreground);
+  color: var(--background);
+}
