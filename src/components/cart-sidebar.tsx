@@ -51,7 +51,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full sm:max-w-lg bg-gradient-to-b from-background to-background/95 border-l border-border/50 backdrop-blur-xl">
+      <SheetContent className="w-full sm:max-w-lg border-l border-border/50">
         <SheetHeader className="border-b border-border pb-6">
           <SheetTitle className="text-foreground text-xl font-semibold flex items-center space-x-2">
             <div className="p-2 rounded-lg bg-foreground">
@@ -61,11 +61,11 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
           </SheetTitle>
         </SheetHeader>
 
-        <div className="flex flex-col h-[calc(100vh-4rem)]">
+        <div className="flex flex-col h-[calc(100vh-6rem)]">
           <div className="flex-1 overflow-y-auto py-6">
             {state.items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
-                <div className="p-6 rounded-full bg-muted">
+                <div className="p-6 rounded-full">
                   <ShoppingBag className="h-16 w-16 text-muted-foreground" />
                 </div>
                 <div className="space-y-2">
