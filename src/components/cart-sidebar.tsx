@@ -33,8 +33,8 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
   if (showCheckout) {
     return (
       <Sheet open={open} onOpenChange={onOpenChange}>
-        <SheetContent className="w-full sm:max-w-lg">
-          <SheetHeader>
+        <SheetContent className="w-full sm:max-w-lg cart-sidebar">
+          <SheetHeader className="cart-sidebar-header pb-6">
             <SheetTitle>Checkout</SheetTitle>
           </SheetHeader>
           <CheckoutForm
@@ -51,8 +51,8 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full sm:max-w-lg border-l border-border/50">
-        <SheetHeader className="border-b border-border pb-6">
+      <SheetContent className="w-full sm:max-w-lg cart-sidebar">
+        <SheetHeader className="cart-sidebar-header pb-6">
           <SheetTitle className="text-foreground text-xl font-semibold flex items-center space-x-2">
             <div className="p-2 rounded-lg bg-foreground">
               <ShoppingBag className="h-5 w-5 text-background" />
@@ -65,7 +65,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
           <div className="flex-1 overflow-y-auto py-6">
             {state.items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
-                <div className="p-6 rounded-full">
+                <div className="empty-cart-icon">
                   <ShoppingBag className="h-16 w-16 text-muted-foreground" />
                 </div>
                 <div className="space-y-2">
@@ -83,18 +83,18 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                 {state.items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-card to-card/80 border border-border/50 hover:border-border transition-all duration-300 group hover:shadow-lg"
+                    className="cart-item flex items-center space-x-4 p-4 rounded-xl"
                   >
                     <div className="w-20 h-20 relative flex-shrink-0">
                       <Image
                         src={item.image_url || "/placeholder.svg"}
                         alt={item.name}
                         fill
-                        className="object-cover cart-item-image border-2 border-border/20 group-hover:border-border transition-all duration-300"
+                        className="object-cover cart-item-image"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-foreground group-hover:text-muted-foreground transition-colors truncate">
+                      <h4 className="font-semibold text-foreground transition-colors truncate">
                         {item.name}
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -105,11 +105,11 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                       </p>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="flex items-center space-x-2 bg-background/50 rounded-full p-1">
+                      <div className="quantity-control flex items-center space-x-2">
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 rounded-full hover:bg-muted hover:text-foreground"
+                          className="quantity-button"
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
@@ -122,7 +122,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 rounded-full hover:bg-muted hover:text-foreground"
+                          className="quantity-button"
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }
@@ -133,7 +133,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8 rounded-full text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                        className="remove-button"
                         onClick={() => removeItem(item.id)}
                       >
                         <X className="h-4 w-4" />
@@ -146,8 +146,8 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
           </div>
 
           {state.items.length > 0 && (
-            <div className="mt-auto border-t border-border pt-6 space-y-4 bg-gradient-to-t from-muted to-transparent rounded-t-xl">
-              <div className="space-y-2">
+            <div className="mt-auto cart-sidebar-footer space-y-4">
+              <div className="total-section space-y-2">
                 <div className="flex justify-between text-sm text-muted-foreground">
                   <span>
                     Subtotal (
@@ -160,7 +160,8 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                   <span>Delivery Fee</span>
                   <span className="text-foreground">Free</span>
                 </div>
-                <div className="flex justify-between text-xl font-bold border-t border-border/30 pt-2">
+                <div className="total-divider"></div>
+                <div className="flex justify-between text-xl font-bold">
                   <span className="text-foreground">Total</span>
                   <span className="text-foreground">
                     ${state.total.toFixed(2)}
@@ -168,7 +169,7 @@ export function CartSidebar({ open, onOpenChange }: CartSidebarProps) {
                 </div>
               </div>
               <Button
-                className="w-full bg-foreground hover:bg-muted-foreground text-background shadow-lg hover:shadow-xl transition-all duration-300 py-3 text-lg font-semibold rounded-xl"
+                className="checkout-button w-full"
                 onClick={() => setShowCheckout(true)}
               >
                 Proceed to Checkout
