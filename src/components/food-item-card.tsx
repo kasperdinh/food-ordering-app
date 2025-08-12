@@ -38,6 +38,7 @@ export function FoodItemCard({ item }: FoodItemCardProps) {
     toast({
       title: "Added to cart",
       description: `${item.name} has been added to your cart.`,
+      className: "added-item-toast",
     });
   };
 

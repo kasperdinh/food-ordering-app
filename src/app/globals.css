@@ -596,3 +596,20 @@ body {
     transparent 100%
   );
 }
+
+.footer-logo-icon {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+.place-order-btn {
+  background: var(--foreground);
+  color: var(--background);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

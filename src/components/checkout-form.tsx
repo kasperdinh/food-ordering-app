@@ -154,7 +154,7 @@ export function CheckoutForm({ onBack, onSuccess }: CheckoutFormProps) {
         <div className="flex justify-between text-lg font-semibold mb-4">
           <span>Total: ${state.total.toFixed(2)}</span>
         </div>
-        <Button type="submit" className="w-full" disabled={loading}>
+        <Button type="submit" className="w-full place-order-btn" disabled={loading}>
           {loading ? "Placing Order..." : "Place Order"}
         </Button>
       </div>
