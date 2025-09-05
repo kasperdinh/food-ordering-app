@@ -21,6 +21,10 @@ export function FoodManage() {
     router.push("/food-items");
   };
 
+  const handleAddCategory = () => {
+    router.push("/categories");
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -38,6 +42,10 @@ export function FoodManage() {
         <DropdownMenuItem onClick={handleAddNew} className="select-item">
           <Plus className="h-4 w-4 mr-2" />
           Add New Item
+        </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleAddCategory} className="select-item">
+          <List className="h-4 w-4 mr-2" />
+          Categories
         </DropdownMenuItem>
         <DropdownMenuItem onClick={handleAllFood} className="select-item">
           <List className="h-4 w-4 mr-2" />
