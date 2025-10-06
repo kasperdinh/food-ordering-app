@@ -324,8 +324,8 @@ export default function EditCategoryPage({ params }: EditCategoryPageProps) {
                 )}
 
                 {/* Action Buttons */}
-                <div className="flex gap-4 pt-4">
-                  <Button type="submit" disabled={loading} className="flex-1">
+                <div className="flex gap-4 pt-4 ">
+                  <Button type="submit" disabled={loading} className="flex-1 border">
                     {loading ? (
                       "Updating..."
                     ) : (
