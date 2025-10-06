@@ -1,11 +1,4 @@
-'use client'
-
-import * as React from 'react'
-import {
-  ThemeProvider as NextThemesProvider,
-  type ThemeProviderProps,
-} from 'next-themes'
-
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+// Theme provider removed - app now uses light theme only
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }
