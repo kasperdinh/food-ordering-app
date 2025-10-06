@@ -16,7 +16,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Category, FoodItem } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, Utensils, Plus, Edit } from "lucide-react";
+import { ArrowRight, Clock, Utensils, Edit } from "lucide-react";
 
 export default function CategoriesPage() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -61,42 +61,45 @@ export default function CategoriesPage() {
   };
 
   const CategoryCard = ({ category }: { category: Category }) => (
-    <Card className="overflow-hidden h-[350px] w-full flex flex-col group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="h-48 relative flex-shrink-0 overflow-hidden">
+    <Card className="overflow-hidden w-full flex flex-row items-center group">
+      <div className="w-32 h-24 relative flex-shrink-0 m-2 overflow-hidden rounded-lg border">
         <Image
           src={category.image_url || "/placeholder.svg"}
           alt={category.name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-1"
         />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-        <div className="absolute top-3 right-3">
-          <Badge variant="secondary" className="bg-white/90 text-black">
+      </div>
+
+      <CardHeader className="flex-1 py-4 px-6">
+        <div className="flex justify-between items-start mb-2">
+          <CardTitle className="text-lg font-semibold line-clamp-1 group-hover:text-primary transition-colors">
+            {category.name}
+          </CardTitle>
+          <Badge variant="secondary" className="ml-2 flex-shrink-0">
             <Utensils className="h-3 w-3 mr-1" />
             {foodItemCounts[category.id] || 0} items
           </Badge>
         </div>
-      </div>
 
-      <CardHeader className="flex-1 pb-4">
-        <CardTitle className="text-xl font-bold line-clamp-1 group-hover:text-primary transition-colors">
-          {category.name}
-        </CardTitle>
-        <CardDescription className="line-clamp-3 text-muted-foreground leading-relaxed">
+        <CardDescription className="line-clamp-2 text-muted-foreground text-sm leading-relaxed mb-4">
           {category.description}
         </CardDescription>
 
-        <div className="mt-auto pt-4 space-y-2">
+        <div className="flex gap-2">
           <Link href={`/?category=${category.id}`}>
-            <Button className="w-full group-hover:bg-primary/90 transition-colors">
+            <Button
+              size="sm"
+              className="group-hover:bg-primary/90 transition-colors"
+            >
               View Items
-              <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
           <Link href={`/categories/edit/${category.id}`}>
-            <Button variant="outline" size="sm" className="w-full">
-              <Edit className="h-4 w-4 mr-2" />
-              Edit Category
+            <Button variant="outline" size="sm">
+              <Edit className="h-3 w-3 mr-2" />
+              Edit
             </Button>
           </Link>
         </div>
@@ -105,14 +108,20 @@ export default function CategoriesPage() {
   );
 
   const CategorySkeleton = () => (
-    <Card className="overflow-hidden h-[350px] w-full flex flex-col">
-      <Skeleton className="h-48 w-full" />
-      <CardHeader className="flex-1">
-        <Skeleton className="h-6 w-3/4" />
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-2/3" />
-        <div className="mt-auto pt-4">
-          <Skeleton className="h-10 w-full" />
+    <Card className="overflow-hidden w-full flex flex-row items-center">
+      <div className="m-2">
+        <Skeleton className="w-32 h-24 flex-shrink-0 rounded-lg" />
+      </div>
+      <CardHeader className="flex-1 py-4 px-6">
+        <div className="flex justify-between items-start mb-2">
+          <Skeleton className="h-5 w-32" />
+          <Skeleton className="h-5 w-16" />
+        </div>
+        <Skeleton className="h-4 w-full mb-1" />
+        <Skeleton className="h-4 w-3/4 mb-4" />
+        <div className="flex gap-2">
+          <Skeleton className="h-8 w-20" />
+          <Skeleton className="h-8 w-16" />
         </div>
       </CardHeader>
     </Card>
@@ -125,30 +134,19 @@ export default function CategoriesPage() {
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="flex justify-between items-start mb-6">
-            <div className="flex-1">
-              <h1 className="text-4xl font-bold tracking-tight mb-4">
-                Browse Categories
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Discover our delicious food categories and find your perfect
-                meal. From appetizers to desserts, we have something for
-                everyone.
-              </p>
-            </div>
-            <Link href="/categories/new">
-              <Button className="ml-4">
-                <Plus className="h-4 w-4 mr-2" />
-                New Category
-              </Button>
-            </Link>
-          </div>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">
+            Browse Categories
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Discover our delicious food categories and find your perfect meal.
+            From appetizers to desserts, we have something for everyone.
+          </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Categories List */}
+        <div className="max-w-4xl mx-auto space-y-4">
           {loading
-            ? Array.from({ length: 8 }).map((_, index) => (
+            ? Array.from({ length: 6 }).map((_, index) => (
                 <CategorySkeleton key={index} />
               ))
             : categories.map((category) => (
